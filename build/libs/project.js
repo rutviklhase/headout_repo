@@ -18,7 +18,7 @@ const server = http.createServer((req, res) => {
   }
 });
 
-server.listen(9000, "localhost", () => {
+server.listen(9000, "0.0.0.0", () => {
   console.log("Listening for request");
 });
 
