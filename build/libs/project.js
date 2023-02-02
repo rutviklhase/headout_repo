@@ -14,12 +14,12 @@ const server = http.createServer((req, res) => {
     );
   } else {
     res.end("Successfully started a server");
-    return 0;
+
   }
 });
 
 server.listen(9000, "localhost", () => {
-  return 0;
+  console.log("Listening for request");
 });
 
 
