@@ -1,0 +1,15 @@
+name: Trigger 'Headout' Deployment
+on: [push]
+jobs:
+  Trigger:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Trigger Deploy
+        run: |
+          curl -X POST https://api.github.com/repos/rutviklhase/headout/dispatches \
+          -H 'Accept: application/vnd.github.everest-preview+json' \
+          -u ${{ secrets.PAT_HEADOUT }} \
+          --data '{"event_type": "Trigger Workflow", "client_payload": { "repository": "headout" }}'
+      - uses: actions/checkout@v3
