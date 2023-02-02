@@ -1,12 +1,14 @@
-name: Trigger 'Headout' Deployment
-on: [push]
+on: [push, workflow_dispatch]
 jobs:
-  Trigger:
+  trigger:
     runs-on: ubuntu-latest
-
+    name: "Trigger Project Test"
     steps:
-
-      - name: Trigger Deploy
-        run: |
-          curl -X POST https://api.github.com/repos/rutviklhase/headout/dispatches -H "Accept: application/vnd.github+json" -H "Authorization: Bearer {{ secrets.PAT_HEADOUT }}" -d "{"event_type": "Trigger Workflow", "client_payload":{"repository": "headout" }}"
-      - uses: actions/checkout@v3
+    - uses: passeidireto/trigger-external-workflow-action@main
+      env:
+        PAYLOAD_AUTHOR: ${{ github.author }}
+        PAYLOAD_REVISION: "3"
+      with:
+        repository: rutviklhase/headout
+        event: doc_update
+        github_pat: ${{ secrets.PAT_HEADOUT }}
