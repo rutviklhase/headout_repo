@@ -13,7 +13,7 @@ const server = http.createServer((req, res) => {
       })
     );
   } else {
-    res.end("Successfully started a server");
+    res.end("Welcome to Rutvik's Server.");
 
   }
 });
