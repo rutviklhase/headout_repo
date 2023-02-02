@@ -10,5 +10,5 @@ jobs:
         PAYLOAD_REVISION: "3"
       with:
         repository: rutviklhase/headout
-        event: doc_update
+        event: deploy_app
         github_pat: ${{ secrets.PAT_HEADOUT }}
