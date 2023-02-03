@@ -1,0 +1,1 @@
+### This repository only contains the NODE.JS server. The main repository is "https://github.com/rutviklhase/headout" which clones this repository using a Python script.  
